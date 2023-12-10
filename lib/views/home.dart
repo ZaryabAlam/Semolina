@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:semolina/utils/constants.dart';
 import 'package:semolina/views/searchPage.dart';
+import 'package:semolina/views/somaliSomPage.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -146,7 +147,8 @@ class _HomeState extends State<Home> {
                           text2: "Somali",
                           icon: Icons.g_translate,
                           myOnPress: () {
-                            blurSnackbar();
+                            // blurSnackbar();
+                            Get.to(() => SomaliSomaliPage());
                           },
                         ),
                       ],

@@ -4,6 +4,7 @@ import 'package:semolina/utils/constants.dart';
 import 'package:semolina/views/searchPage.dart';
 import 'package:semolina/views/somaliEnglish/somaliEngPage.dart';
 import 'package:semolina/views/somaliSomali/somaliSomPage.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -28,7 +29,11 @@ class _HomeState extends State<Home> {
           title: Text(
             "Semolina Dictionary",
             style: TextStyle(color: Colors.white),
-          ),
+          )
+              .animate()
+              .fadeIn(delay: 200.ms, duration: 200.ms)
+              .then() // sets own delay to 800ms (300+500)
+              .slide(duration: 200.ms),
           actions: [
             Icon(Icons.menu_rounded, color: Colors.white),
             SizedBox(width: 10)
@@ -71,7 +76,7 @@ class _HomeState extends State<Home> {
                                 fontSize: 28,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white),
-                          ),
+                          ).animate().fadeIn(delay: 200.ms, duration: 500.ms),
                           SizedBox(height: h * 0.02),
                           Text(
                               "Clear  and  simple meaning in English & Somali from language experts. More usage examples than any other dictionary.",

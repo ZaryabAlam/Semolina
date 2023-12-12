@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:semolina/services/WordsDao.dart';
 import 'package:semolina/views/detailPage.dart';
 import 'package:semolina/models/Words.dart';
@@ -30,7 +31,11 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       extendBodyBehindAppBar: false,
       appBar: AppBar(
-        title: Text("Semolina Dictionary"),
+        title: Text("Semolina Dictionary")
+            .animate()
+            .fadeIn(delay: 200.ms, duration: 200.ms)
+            .then() // sets own delay to 800ms (300+500)
+            .slide(duration: 200.ms),
       ),
       body: Column(
         children: [
@@ -125,11 +130,13 @@ class _SearchPageState extends State<SearchPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.search_off_rounded,
-                          color: primaryColor,
-                          size: 64,
+                        Container(
+                          height: 80,
+                          width: 80,
+                          child:
+                              Image(image: AssetImage("assets/cross_icon.png")),
                         ),
+                        SizedBox(height: 10),
                         Text("No Result Found!")
                       ],
                     ),
@@ -140,11 +147,13 @@ class _SearchPageState extends State<SearchPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.search_rounded,
-                          color: primaryColor,
-                          size: 64,
+                        Container(
+                          height: 80,
+                          width: 80,
+                          child: Image(
+                              image: AssetImage("assets/search_icon.png")),
                         ),
+                        SizedBox(height: 10),
                         Text("Search Something!"),
                       ],
                     ),

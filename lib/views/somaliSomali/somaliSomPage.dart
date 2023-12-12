@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:semolina/models/somaliSomaliModel.dart';
 import 'package:semolina/views/somaliSomali/somaliSomDes.dart';
 
@@ -36,7 +37,10 @@ class _SomaliSomaliPageState extends State<SomaliSomaliPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Somali-Somali"),
+        title: Text("Somali-Somali")
+            .animate()
+            .fadeIn(delay: 200.ms, duration: 200.ms)
+            .slideY(duration: 200.ms),
       ),
       body: Column(children: [
         Container(
@@ -127,12 +131,14 @@ class _SomaliSomaliPageState extends State<SomaliSomaliPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: 120),
-                      Icon(
-                        Icons.search_rounded,
-                        color: primaryColor,
-                        size: 64,
+                      SizedBox(height: 20),
+                      Container(
+                        height: 80,
+                        width: 80,
+                        child:
+                            Image(image: AssetImage("assets/search_icon.png")),
                       ),
+                      SizedBox(height: 10),
                       Text("Search Something!"),
                     ],
                   ),
@@ -142,12 +148,14 @@ class _SomaliSomaliPageState extends State<SomaliSomaliPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      SizedBox(height: 120),
-                      Icon(
-                        Icons.search_off_rounded,
-                        color: primaryColor,
-                        size: 64,
+                      SizedBox(height: 20),
+                      Container(
+                        height: 80,
+                        width: 80,
+                        child:
+                            Image(image: AssetImage("assets/cross_icon.png")),
                       ),
+                      SizedBox(height: 10),
                       Text("No Result Found!")
                     ],
                   ),

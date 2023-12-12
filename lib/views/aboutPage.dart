@@ -19,11 +19,12 @@ class _AboutPageState extends State<AboutPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.info_outline,
-              color: primaryColor,
-              size: 64,
+            Container(
+              height: 80,
+              width: 80,
+              child: Image(image: AssetImage("assets/info_icon.png")),
             ),
+            SizedBox(height: 10),
             Text("Coming Soon!")
           ],
         ),

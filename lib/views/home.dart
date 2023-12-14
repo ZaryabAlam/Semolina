@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:semolina/utils/constants.dart';
-import 'package:semolina/views/englishSomali/engSomaliDes.dart';
 import 'package:semolina/views/englishSomali/engSomaliPage.dart';
-import 'package:semolina/views/searchPage.dart';
 import 'package:semolina/views/somaliEnglish/somaliEngPage.dart';
 import 'package:semolina/views/somaliSomali/somaliSomPage.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -23,11 +21,16 @@ class _HomeState extends State<Home> {
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
+          // automaticallyImplyLeading: true,
           titleSpacing: 0.0,
           centerTitle: false,
           elevation: 0,
           backgroundColor: Colors.transparent,
-          leading: Icon(Icons.workspaces_filled, color: Colors.white),
+          leading: Icon(Icons.workspaces_filled),
+
+          iconTheme: const IconThemeData(
+            color: Colors.white,
+          ),
           title: Text(
             "Semolina Dictionary",
             style: TextStyle(color: Colors.white),
@@ -37,9 +40,56 @@ class _HomeState extends State<Home> {
               .then() // sets own delay to 800ms (300+500)
               .slide(duration: 200.ms),
           actions: [
-            Icon(Icons.menu_rounded, color: Colors.white),
-            SizedBox(width: 10)
+            Builder(
+              builder: (context) => IconButton(
+                icon: Icon(Icons.menu_open_rounded, color: Colors.white),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              ),
+            ),
+            SizedBox(width: 10),
           ],
+        ),
+        endDrawer: ClipRRect(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+          child: Drawer(
+            child: ListView(
+              children: [
+                DrawerHeader(
+                    padding: EdgeInsets.zero,
+                    decoration: BoxDecoration(color: primaryColor),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                        ),
+                        SizedBox(height: 10),
+                        Text("Semolina"),
+                        Text("Somali Dictionary",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w200,
+                                color: Colors.black87,
+                                fontSize: 14)),
+                      ],
+                    )),
+                ListTile(
+                  leading: Icon(
+                    Icons.settings,
+                  ),
+                  title: const Text('Settings'),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ),
         ),
         body: Stack(
           children: [

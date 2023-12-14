@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:semolina/models/engSomaliModel.dart';
 import 'package:semolina/utils/constants.dart';
 
@@ -9,31 +10,66 @@ class EnglishSomaliDes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
-          title: Text("Semolina Dictionary"),
+          elevation: 0,
+          title: Text("Semolina Dictionary")
+              .animate()
+              .fadeIn(delay: 200.ms, duration: 200.ms)
+              .slideY(duration: 200.ms),
+          backgroundColor: transparent,
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+        body: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // SizedBox(height: 50),
-              Text(
-                engSomaliWord.word,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 52,
-                    color: primaryColor),
+              Container(
+                height: 280,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    primaryColor,
+                    primaryColor.withOpacity(0.6),
+                  ],
+                )),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Animate(
+                      effects: [FadeEffect(duration: 600.ms)],
+                      child: Text(
+                        engSomaliWord.word,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 52,
+                            color: white),
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 80),
+                      child: Divider(
+                        color: white,
+                      ),
+                    ),
+                    SizedBox(height: 40),
+                  ],
+                ),
               ),
-              SizedBox(height: 5),
-              Divider(),
+
+              // SizedBox(height: 5),
+              // Divider(),
 
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Translation",
+                    "Somali:",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,

@@ -43,28 +43,35 @@ class _SomaliSomaliPageState extends State<SomaliSomaliPage> {
             .slideY(duration: 200.ms),
       ),
       body: Column(children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: TextField(
-            autofocus: true,
-            controller: _searchController,
-            onChanged: filterWords,
-            decoration: InputDecoration(
-              hintText: 'Search...',
-              suffixIcon: IconButton(
-                icon: Icon(Icons.clear),
-                onPressed: () => _searchController.clear(),
-              ),
-              prefixIcon: IconButton(
-                icon: Icon(Icons.search),
-                onPressed: () {},
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: primaryColor, width: 3),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
+        Hero(
+          tag: 'searchbar-tag',
+          child: Material(
+            color: transparent,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          
+              child: TextField(
+                autofocus: true,
+                controller: _searchController,
+                onChanged: filterWords,
+                decoration: InputDecoration(
+                  hintText: 'Search...',
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.clear),
+                    onPressed: () => _searchController.clear(),
+                  ),
+                  prefixIcon: IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: () {},
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: primaryColor, width: 3),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
               ),
             ),
           ),
@@ -91,14 +98,6 @@ class _SomaliSomaliPageState extends State<SomaliSomaliPage> {
                         borderRadius: BorderRadius.circular(15),
                         child: InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     PageRouteBuilder(
-                            //       pageBuilder: (context, a, b) =>
-                            //           DetailPage(
-                            //               planetInfo:
-                            //                   filteredPlanets[index]),
-                            //     ));
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(

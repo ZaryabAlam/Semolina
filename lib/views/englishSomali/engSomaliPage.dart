@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:semolina/models/somaliEngModel.dart';
+import 'package:semolina/models/engSomaliModel.dart';
 import 'package:semolina/utils/constants.dart';
-import 'package:semolina/views/somaliEnglish/somaliEngDes.dart';
+import 'package:semolina/views/englishSomali/engSomaliDes.dart';
 
-class SomaliEnglishPage extends StatefulWidget {
-  const SomaliEnglishPage({super.key});
+class EnglishSomaliPage extends StatefulWidget {
+  const EnglishSomaliPage({super.key});
 
   @override
-  State<SomaliEnglishPage> createState() => _SomaliEnglishPageState();
+  State<EnglishSomaliPage> createState() => _EnglishSomaliPageState();
 }
 
-class _SomaliEnglishPageState extends State<SomaliEnglishPage> {
+class _EnglishSomaliPageState extends State<EnglishSomaliPage> {
   final TextEditingController _searchController = TextEditingController();
-
-  List<SomaliEngWord> filteredWords = [];
+  List<EngSomaliWord> filteredWords = [];
 
   void filterWords(String query) {
     setState(() {
       filteredWords = words
           // ignore: non_constant_identifier_names
-          .where((SomaliEngWord) =>
-              SomaliEngWord.word.toLowerCase().contains(query.toLowerCase()))
+          .where((EngSomaliWord) =>
+              EngSomaliWord.word.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
@@ -36,7 +35,7 @@ class _SomaliEnglishPageState extends State<SomaliEnglishPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Somali-English")
+        title: Text("English-Somali")
             .animate()
             .fadeIn(delay: 200.ms, duration: 200.ms)
             .slideY(duration: 200.ms),
@@ -96,20 +95,12 @@ class _SomaliEnglishPageState extends State<SomaliEnglishPage> {
                         borderRadius: BorderRadius.circular(15),
                         child: InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     PageRouteBuilder(
-                            //       pageBuilder: (context, a, b) =>
-                            //           DetailPage(
-                            //               planetInfo:
-                            //                   filteredPlanets[index]),
-                            //     ));
                             Navigator.push(
                                 context,
                                 PageRouteBuilder(
                                   pageBuilder: (context, a, b) =>
-                                      SomaliEnglishDes(
-                                          somaliEngWord: filteredWords[index]),
+                                      EnglishSomaliDes(
+                                          engSomaliWord: filteredWords[index]),
                                 ));
                           },
                           child: Text(

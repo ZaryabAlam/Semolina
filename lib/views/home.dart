@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:semolina/utils/constants.dart';
 import 'package:semolina/views/englishSomali/engSomaliPage.dart';
+import 'package:semolina/views/settingsPage.dart';
 import 'package:semolina/views/somaliEnglish/somaliEngPage.dart';
 import 'package:semolina/views/somaliSomali/somaliSomPage.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -21,6 +23,15 @@ class _HomeState extends State<Home> {
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
+          // systemOverlayStyle: SystemUiOverlayStyle(
+          //   // Status bar color
+          //   statusBarColor: Colors.transparent,
+
+          //   // Status bar brightness (optional)
+          //   statusBarIconBrightness:
+          //       Brightness.dark, // For Android (dark icons)
+          //   statusBarBrightness: Brightness.light, // For iOS (dark icons)
+          // ),
           // automaticallyImplyLeading: true,
           titleSpacing: 0.0,
           centerTitle: false,
@@ -50,47 +61,7 @@ class _HomeState extends State<Home> {
             SizedBox(width: 10),
           ],
         ),
-        endDrawer: ClipRRect(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
-          child: Drawer(
-            child: ListView(
-              children: [
-                DrawerHeader(
-                    padding: EdgeInsets.zero,
-                    decoration: BoxDecoration(color: primaryColor),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 80,
-                          width: 80,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle, color: Colors.white),
-                        ),
-                        SizedBox(height: 10),
-                        Text("Semolina"),
-                        Text("Somali Dictionary",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w200,
-                                color: Colors.black87,
-                                fontSize: 14)),
-                      ],
-                    )),
-                ListTile(
-                  leading: Icon(
-                    Icons.settings,
-                  ),
-                  title: const Text('Settings'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
+        endDrawer: MyEndDrawer(),
         body: Stack(
           children: [
             Container(
@@ -234,6 +205,59 @@ class _HomeState extends State<Home> {
         ),
         backgroundColor: Colors.white12,
         snackPosition: SnackPosition.BOTTOM);
+  }
+}
+
+class MyEndDrawer extends StatelessWidget {
+  const MyEndDrawer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20), bottomLeft: Radius.circular(20)),
+        child: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                  padding: EdgeInsets.zero,
+                  decoration: BoxDecoration(color: primaryColor),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle, color: Colors.white),
+                      ),
+                      SizedBox(height: 10),
+                      Text("Semolina"),
+                      Text("Somali Dictionary",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w200,
+                              color: Colors.black87,
+                              fontSize: 14)),
+                    ],
+                  )),
+              ListTile(
+                leading: Icon(
+                  Icons.settings,
+                ),
+                title: const Text('Settings'),
+                onTap: () {
+                  Get.to(() => SettingsPage());
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 

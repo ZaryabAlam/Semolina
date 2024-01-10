@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:semolina/dashboard.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+//test
 void main() {
   runApp(const MyApp());
 }

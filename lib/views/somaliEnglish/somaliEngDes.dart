@@ -13,7 +13,7 @@ class SomaliEnglishDes extends StatelessWidget {
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           elevation: 0,
-          title: Text("Semolina Dictionary")
+          title: Text("Asal Dictionary")
               .animate()
               .fadeIn(delay: 200.ms, duration: 200.ms)
               .slideY(duration: 200.ms),
@@ -83,7 +83,7 @@ class SomaliEnglishDes extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     ListView.builder(
-                     padding: EdgeInsets.zero,
+                      padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       physics: NeverScrollableScrollPhysics(),
                       itemCount: somaliEngWord.definitions.length,

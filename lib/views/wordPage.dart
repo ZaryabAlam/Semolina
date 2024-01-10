@@ -36,7 +36,7 @@ class _WordPageState extends State<WordPage> {
                   });
                 },
               )
-            : Text("Semolina Dictionary"),
+            : Text("Asal Dictionary"),
         actions: [
           isSearching
               ? IconButton(

@@ -31,7 +31,7 @@
 //     return Scaffold(
 //       extendBodyBehindAppBar: false,
 //       appBar: AppBar(
-//         title: Text("Semolina Dictionary")
+//         title: Text("Asal Dictionary")
 //             .animate()
 //             .fadeIn(delay: 200.ms, duration: 200.ms)
 //             .then() // sets own delay to 800ms (300+500)

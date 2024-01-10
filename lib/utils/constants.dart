@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const mongoURL =
+    "mongodb+srv://Test_Username:test12345678@cluster0.x4ixm6x.mongodb.net/Dictionary?retryWrites=true&w=majority";
+const mongoCollection = "somali-somali";
+
 Color primaryColor = Color.fromARGB(255, 123, 195, 221);
 Color secondaryColor = Colors.blueGrey;
 Color white = Colors.white;

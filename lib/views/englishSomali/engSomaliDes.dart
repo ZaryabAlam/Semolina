@@ -13,7 +13,7 @@ class EnglishSomaliDes extends StatelessWidget {
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           elevation: 0,
-          title: Text("Semolina Dictionary")
+          title: Text("Asal Dictionary")
               .animate()
               .fadeIn(delay: 200.ms, duration: 200.ms)
               .slideY(duration: 200.ms),

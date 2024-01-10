@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
             color: Colors.white,
           ),
           title: Text(
-            "Semolina Dictionary",
+            "Asal Dictionary",
             style: TextStyle(color: Colors.white),
           )
               .animate()
@@ -92,6 +92,14 @@ class _HomeState extends State<Home> {
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         children: [
+                          Container(
+                            height: 100,
+                            width: 100,
+                            child: Image(
+                                fit: BoxFit.cover,
+                                image: AssetImage("assets/logo/logo_full.png")),
+                          ),
+                          SizedBox(height: 10),
                           Text(
                             "Experience  Somalia's\nown Dictionary App",
                             textAlign: TextAlign.center,

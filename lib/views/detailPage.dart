@@ -16,7 +16,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Semolina Dictionary"),
+        title: Text("Asal Dictionary"),
       ),
       body: Center(
         child: Column(

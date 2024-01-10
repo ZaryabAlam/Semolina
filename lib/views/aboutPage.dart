@@ -13,7 +13,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Semolina Dictionary"),
+        title: Text("Asal Dictionary"),
       ),
       body: Center(
         child: Column(

@@ -11,5 +11,9 @@ class MongoDatabase {
     inspect(db);
     userCollection = db.collection(mongoCollection);
   }
-}
 
+  static Future<List<Map<String, dynamic>>> getData() async {
+    final arrData = await userCollection.find().toList();
+    return arrData;
+  }
+}

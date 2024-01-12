@@ -12,8 +12,28 @@ class MongoDatabase {
     userCollection = db.collection(mongoCollection);
   }
 
+//fetch all data
   static Future<List<Map<String, dynamic>>> getData() async {
     final arrData = await userCollection.find().toList();
     return arrData;
   }
+
+//search
+  static Future<List<Map<String, dynamic>>> searchData(
+      String key, String value) async {
+    final query = where
+        .eq(key, value) // Exact match
+        .or(where.eq(
+            key,
+            BsonRegexp(".*$value.*",
+                caseInsensitive: true))); // Case-insensitive wildcard search
+
+    final arrData = await userCollection.find(query).toList();
+    return arrData;
+  }
+// static Future<List<Map<String, dynamic>>> searchData(String key, String value) async {
+//     final query = where.eq(key, value);
+//     final arrData = await userCollection.find(query).toList();
+//     return arrData;
+//   }
 }

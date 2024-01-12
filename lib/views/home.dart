@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:semolina/utils/constants.dart';
+import 'package:semolina/views/cloud/somaliWord.dart';
 import 'package:semolina/views/englishSomali/engSomaliPage.dart';
 import 'package:semolina/views/settingsPage.dart';
 import 'package:semolina/views/somaliEnglish/somaliEngPage.dart';
@@ -193,6 +194,17 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
+                    SizedBox(height: 10),
+                    HomeSmallButton(
+                      text1: "Cloud",
+                      text2: "",
+                      icon: Icons.g_translate,
+                      myOnPress: () {
+                        // blurSnackbar();
+                        Get.to(() => SomaliCloud());
+                      },
+                    ),
+                    SizedBox(height: 10),
                   ],
                 ),
               ],

@@ -166,12 +166,12 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         HomeSmallButton(
-                          text1: "English —",
+                          text1: "Somali —",
                           text2: "Somali",
                           icon: Icons.g_translate,
                           myOnPress: () {
                             // blurSnackbar();
-                            Get.to(() => EnglishSomaliPage());
+                            Get.to(() => SomaliSomaliPage());
                           },
                         ),
                         HomeSmallButton(
@@ -184,20 +184,20 @@ class _HomeState extends State<Home> {
                           },
                         ),
                         HomeSmallButton(
-                          text1: "Somali —",
+                          text1: "English —",
                           text2: "Somali",
                           icon: Icons.g_translate,
                           myOnPress: () {
                             // blurSnackbar();
-                            Get.to(() => SomaliSomaliPage());
+                            Get.to(() => EnglishSomaliPage());
                           },
                         ),
                       ],
                     ),
                     SizedBox(height: 10),
                     HomeSmallButton(
-                      text1: "Cloud",
-                      text2: "",
+                      text1: "Cloud —",
+                      text2: "Database",
                       icon: Icons.g_translate,
                       myOnPress: () {
                         // blurSnackbar();
